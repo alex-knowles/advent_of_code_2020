@@ -36,3 +36,19 @@ curl --location --request POST 'http://localhost:20201/v1/data/advent_of_code/da
 ```
 
 The `data-raw` argument can be substituted for a `request.json` document found in the `/data` directory.
+
+## Convert puzzle input to JSON input
+
+The puzzle for Day 2 included 1000 lines of input data. I used some Elixir to massage the data into a JSON blob that I could POST to OPA:
+
+```elixir
+data = """
+<paste raw puzzle data into this heredoc>
+"""
+
+lines = String.split(data, "\n", trim: true)
+output = Poison.encode_to_iodata!(lines, pretty: true)
+{:ok, file} = File.open("input.json", [:write])
+IO.binwrite(file, output)
+File.close(file)
+```
