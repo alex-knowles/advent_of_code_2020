@@ -18,7 +18,7 @@ docker run \
 
 Here's an example cURL command for querying the result for Day 01:
 
-```json
+```
 curl --location --request POST 'http://localhost:20201/v1/data/advent_of_code/day_01' \
 --header 'Content-Type: application/json' \
 --data-raw '{
