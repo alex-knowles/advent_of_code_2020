@@ -11,5 +11,5 @@ sample_input = {
 }
 
 test_day_02_part_1 {
-  day_02.valid_password_count == 2 with input as sample_input
+  day_02.valid_password_count == 1 with input as sample_input
 }
