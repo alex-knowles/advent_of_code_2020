@@ -16,26 +16,21 @@ sample_input_map := `
 .#..#...#.#
 `
 
+sample_input = {
+  "slope": {"x": 3, "y": 1},
+  "map": sample_input_map
+}
+
+test_day_03_part_1 {
+  day_03.solution == 7 with input as sample_input
+}
+
 sample_map := [
   [0, 0, 0, 0],
   [0, 1, 1, 1],
   [1, 1, 0, 0],
   [0, 1, 0, 0]
 ]
-
-sample_input = {
-  "data": {
-    "slope": {
-      "x": 3,
-      "y": 1
-    },
-    "map": sample_input_map
-  }
-}
-
-test_day_03_part_1 {
-  day_03.solution == 7 with input as sample_input with data.map as sample_map
-}
 
 test_encounters_for_slope {
   slope := {"x": 3, "y": 1}

@@ -1,8 +1,36 @@
 package advent_of_code.day_03
 
-solution := 0
+solution = tree_count {
+  slope := input.slope
+  encounters := encounters_for_slope(parsed_map, slope)
 
-map := []
+  tree_encounters := {tree |
+    encounter := encounters[_]
+    encounter.tree == true
+    tree := encounter
+  }
+
+  tree_count := count(tree_encounters)
+}
+
+parsed_map := parse_input_map(input.map)
+
+parse_input_map(input_map) = map {
+  input_rows := [input_row |
+    input_row := split(input_map, "\n")[_]
+    count(input_row) > 0
+  ]
+
+  map := [row | row := parse_row(input_rows[_])]
+}
+
+parse_row(input_row) = row {
+  input_cols := split(input_row, "")
+  row := [col | col := parse_col(input_cols[_])]
+}
+
+parse_col(".") = 0
+parse_col("#") = 1
 
 encounters_for_slope(map, slope) = encounters {
   positions := positions_for_slope(map, slope)
