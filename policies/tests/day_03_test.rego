@@ -22,7 +22,7 @@ sample_input = {
 }
 
 test_day_03_part_1 {
-  day_03.solution == 7 with input as sample_input
+  day_03.solution_p1 == 7 with input as sample_input
 }
 
 sample_map := [

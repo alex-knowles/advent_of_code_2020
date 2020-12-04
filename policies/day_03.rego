@@ -1,8 +1,12 @@
 package advent_of_code.day_03
 
-solution = tree_count {
+solution_p1 = tree_count {
   slope := input.slope
-  encounters := encounters_for_slope(parsed_map, slope)
+  tree_count := trees_hit_for_slope(parsed_map, slope)
+}
+
+trees_hit_for_slope(map, slope) = tree_count {
+  encounters := encounters_for_slope(map, slope)
 
   tree_encounters := {tree |
     encounter := encounters[_]
