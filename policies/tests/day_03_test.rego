@@ -67,23 +67,3 @@ test_positions_for_slope {
 
   day_03.positions_for_slope(sample_map, slope) == expected_positions
 }
-
-test_miss_at_position_0_0 {
-  position := {"x": 0, "y": 0}
-  not day_03.hit_at_position(sample_map, position)
-}
-
-test_hit_at_position_0_2 {
-  position := {"x": 0, "y": 2}
-  day_03.hit_at_position(sample_map, position)
-}
-
-test_get_next_position {
-  position := {"x": 0, "y": 2}
-  slope := {"x": 3, "y": 1}
-  expected_result := {"x": 3, "y": 3}
-  day_03.get_next_position(sample_map, position, slope) == expected_result
-}
-
-
-

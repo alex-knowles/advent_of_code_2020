@@ -69,17 +69,6 @@ positions_for_slope(map, slope) = positions {
 
 max_y(map) = y { y := count(map) - 1 }
 
-hit_at_position(map, {"x": x, "y": y}) = true {
-  position := map[y][x]
-  position == 1
-}
-
-get_next_position(map, position, slope) = next_position {
-  next_x := position.x + slope.x
-  next_y := position.y + slope.y
-  next_position = position_new(next_x, next_y)
-}
-
 position_new(x, y) = position {
   position := {"x": x, "y": y}
 }
