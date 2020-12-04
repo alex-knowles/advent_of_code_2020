@@ -5,6 +5,17 @@ solution_p1 = tree_count {
   tree_count := trees_hit_for_slope(parsed_map, slope)
 }
 
+solution_p2 = solution {
+  slopes := input.slopes
+
+  tree_counts := [tree_count |
+    slope := slopes[_]
+    tree_count := trees_hit_for_slope(parsed_map, slope)
+  ]
+
+  solution := product(tree_counts)
+}
+
 trees_hit_for_slope(map, slope) = tree_count {
   encounters := encounters_for_slope(map, slope)
 
