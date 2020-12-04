@@ -4,6 +4,21 @@ solution := 0
 
 map := []
 
+encounters_for_slope(map, slope) = encounters {
+  positions := positions_for_slope(map, slope)
+
+  encounters := {encounter |
+    position := positions[i]
+    x := position.x % count(map[0])
+    y := position.y
+
+    encounter := {
+      "position": position_new(x, y),
+      "tree": map[y][x] == 1
+    }
+  }
+}
+
 positions_for_slope(map, slope) = positions {
   # precompute y_values
   possible_y_values := numbers.range(0, max_y(map))
