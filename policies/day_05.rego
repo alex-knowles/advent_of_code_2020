@@ -3,18 +3,25 @@ package advent_of_code.day_05
 import data.advent_of_code.day_05
 import data.advent_of_code.input_data
 
+solution_p1 := highest_seat_id {
+  raw_data := input_data.day_05.boarding_pass_codes
+  boarding_pass_codes := split(raw_data, "\n")
+
+  codes := [code |
+    code := boarding_pass_codes[_]
+    count(code) > 0
+  ]
+
+  seat_ids := [seat_id |
+    seat_id := seat_id_from_code(codes[_])
+  ]
+
+  highest_seat_id := max(seat_ids)
+}
+
 seat_id_from_code(code) = seat_id {
   {"row": row, "col": col} := boarding_pass_from_code(code)
   seat_id := 8 * row + col
-}
-
-debug_boarding_pass_from_code = boarding_passes {
-  codes = input.data.codes
-
-  boarding_passes := [boarding_pass |
-    code := codes[_]
-    boarding_pass := boarding_pass_from_code(code)
-  ]
 }
 
 boarding_pass_from_code(code) = boarding_pass {
