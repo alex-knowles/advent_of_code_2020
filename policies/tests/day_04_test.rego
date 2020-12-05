@@ -37,6 +37,14 @@ passport := {
   "cid": "147"
 }
 
+test_passport_from_chunk {
+  chunk := `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+byr:1937 iyr:2017 cid:147 hgt:183cm`
+
+  expected_passport := passport
+  day_04.passport_from_chunk(chunk) == expected_passport
+}
+
 test_passport_is_valid {
   valid_passport := passport
   day_04.passport_is_valid(valid_passport)
