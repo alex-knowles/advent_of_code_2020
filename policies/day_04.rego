@@ -1,6 +1,34 @@
 package advent_of_code.day_04
 
-solution_p1 := 0
+solution_p1 = valid_passports {
+  batch_data := input.batch_data
+  valid_passports := count_valid_passports_from_batch_data(batch_data)
+}
+
+count_valid_passports_from_batch_data(batch_data) = result {
+  passports := passports_from_batch_data(batch_data)
+
+  valid_passports := [valid_passport |
+    valid_passport := passports[_]
+    passport_is_valid(valid_passport)
+  ]
+
+  result := count(valid_passports)
+}
+
+passports = result {
+  batch_data := input.batch_data
+  result := passports_from_batch_data(batch_data)
+}
+
+passports_from_batch_data(batch_data) = passports {
+  passports := [passport |
+    chunks := split(batch_data, "\n\n")
+    chunk := chunks[_]
+    count(chunk) > 0
+    passport := passport_from_chunk(chunk)
+  ]
+}
 
 passport_from_chunk(chunk) = passport {
   one_line_chunk := replace(chunk, "\n", " ")
