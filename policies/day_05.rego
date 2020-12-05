@@ -23,6 +23,11 @@ seat_ids_from_raw_data(raw_data) = seat_ids {
   }
 }
 
+seat_ids = seat_ids {
+  raw_data := input_data.day_05.boarding_pass_codes
+  seat_ids := sort(seat_ids_from_raw_data(raw_data))
+}
+
 seat_id_from_code(code) = seat_id {
   {"row": row, "col": col} := boarding_pass_from_code(code)
   seat_id := 8 * row + col
