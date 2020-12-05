@@ -23,10 +23,6 @@ sample_input := {
   "batch_data": batch_data
 }
 
-test_day_04_part_1 {
-  day_04.solution_p1 == 2 with input_data.day_04 as sample_input
-}
-
 passport := {
   "byr": "1937",
   "iyr": "2017",
