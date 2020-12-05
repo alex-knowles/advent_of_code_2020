@@ -3,6 +3,21 @@ package advent_of_code.day_05
 import data.advent_of_code.day_05
 import data.advent_of_code.input_data
 
+solution_p2 = missing_seat_ids {
+  raw_data := input_data.day_05.boarding_pass_codes
+  seat_ids := seat_ids_from_raw_data(raw_data)
+
+  lowest_seat_id := min(seat_ids)
+  highest_seat_id := max(seat_ids)
+  range := numbers.range(lowest_seat_id, highest_seat_id)
+
+  all_possible_seat_ids := {seat_id |
+    seat_id := range[_]
+  }
+
+  missing_seat_ids := all_possible_seat_ids - seat_ids
+}
+
 solution_p1 = highest_seat_id {
   raw_data := input_data.day_05.boarding_pass_codes
   seat_ids := seat_ids_from_raw_data(raw_data)
