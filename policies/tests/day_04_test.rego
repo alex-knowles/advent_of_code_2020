@@ -1,6 +1,7 @@
 package advent_of_code.tests.day_04
 
 import data.advent_of_code.day_04
+import data.advent_of_code.input_data
 
 batch_data := `
 ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
@@ -23,7 +24,7 @@ sample_input := {
 }
 
 test_day_04_part_1 {
-  day_04.solution_p1 == 2 with input as sample_input
+  day_04.solution_p1 == 2 with input_data.day_04 as sample_input
 }
 
 passport := {
