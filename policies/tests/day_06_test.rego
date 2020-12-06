@@ -26,6 +26,10 @@ test_day_06_p1 {
   day_06.solution_p1 == 11 with input_data.day_06.batch_data as batch_data
 }
 
+test_day_06_p2 {
+  day_06.solution_p2 == 6 with input_data.day_06.batch_data as batch_data
+}
+
 sample_group := `
 abcx
 abcy
