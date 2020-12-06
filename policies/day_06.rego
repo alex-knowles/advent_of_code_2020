@@ -55,25 +55,11 @@ group_from_input(group_input) = group {
     answer := individual_answers[_][_]
   }
 
-  common_answers := {common_answer |
-    common_answer := individual_answers[_][_]
-    all_answer_sets_include(individual_answers, common_answer)
-  }
+  common_answers := intersection(individual_answers)
 
   group := {
     "individual_answers": individual_answers,
     "group_answers": group_answers,
     "common_answers": common_answers
   }
-}
-
-all_answer_sets_include(answer_sets, answer) = true {
-  inclusive_sets := {inclusive_set |
-    inclusive_set := answer_sets[_]
-    inclusive_set[answer]
-  }
-
-  total_sets := count(answer_sets)
-  total_sets_including_answer := count(inclusive_sets)
-  total_sets_including_answer == total_sets
 }
