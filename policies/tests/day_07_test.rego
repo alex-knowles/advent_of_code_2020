@@ -86,6 +86,10 @@ bag_rules := {
   ]
 }
 
+test_solution_p1 {
+  day_07.solution_p1 == 4 with input_data.day_07.bag_rules_input as bag_rules_input
+}
+
 test_containers_for_shiny_gold {
   expected_bag_colors := {
     "dark_orange",
@@ -95,4 +99,8 @@ test_containers_for_shiny_gold {
   }
 
   day_07.containers_for("shiny_gold") == expected_bag_colors with day_07.bag_rules as bag_rules
+}
+
+test_bag_rules {
+  day_07.bag_rules == bag_rules with input_data.day_07.bag_rules_input as bag_rules_input
 }
