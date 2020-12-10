@@ -3,6 +3,10 @@ package advent_of_code.day_09
 import data.advent_of_code.day_09
 import data.advent_of_code.input_data
 
+solution_p1 = result {
+  result := first_invalid_number(25, 25)
+}
+
 first_invalid_number(preamble_length, window_length) = invalid_number {
   sequence := sequence_from_input(input_data.day_09.sequence_input)
 
@@ -14,7 +18,7 @@ first_invalid_number(preamble_length, window_length) = invalid_number {
   }
 
   indices := [index | invalid_numbers[index]]
-  lowest_index := sort(indices)[0]
+  lowest_index := min(indices)
   invalid_number := invalid_numbers[lowest_index]
 }
 
