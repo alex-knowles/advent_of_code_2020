@@ -32,3 +32,10 @@ test_first_invalid_number {
 
   day_09.first_invalid_number(preamble_length, window_length) == 127 with input_data.day_09.sequence_input as sample_sequence_input
 }
+
+test_encryption_weakness {
+  preamble_length := 5
+  window_length := 5
+
+  day_09.encryption_weakness(preamble_length, window_length) == 62 with input_data.day_09.sequence_input as sample_sequence_input
+}

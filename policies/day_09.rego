@@ -7,6 +7,26 @@ solution_p1 = result {
   result := first_invalid_number(25, 25)
 }
 
+solution_p2 = result {
+  result := encryption_weakness(25, 25)
+}
+
+encryption_weakness(preamble_length, window_length) = weakness {
+  target := first_invalid_number(preamble_length, window_length)
+  set := weakness_set_for_target(target)
+
+  weakness := min(set) + max(set)
+}
+
+weakness_set_for_target(target) = contiguous_array {
+  sequence[index_1]
+  sequence[index_2]
+  index_1 != index_2
+
+  contiguous_array := array.slice(sequence, index_1, index_2 + 1)
+  sum(contiguous_array) == target
+}
+
 first_invalid_number(preamble_length, window_length) = invalid_number {
   invalid_numbers := {index: invalid_number |
     invalid_number := sequence[index]
