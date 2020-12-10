@@ -8,8 +8,6 @@ solution_p1 = result {
 }
 
 first_invalid_number(preamble_length, window_length) = invalid_number {
-  sequence := sequence_from_input(input_data.day_09.sequence_input)
-
   invalid_numbers := {index: invalid_number |
     invalid_number := sequence[index]
     index >= preamble_length
@@ -20,6 +18,10 @@ first_invalid_number(preamble_length, window_length) = invalid_number {
   indices := [index | invalid_numbers[index]]
   lowest_index := min(indices)
   invalid_number := invalid_numbers[lowest_index]
+}
+
+sequence = sequence {
+  sequence := sequence_from_input(input_data.day_09.sequence_input)
 }
 
 sequence_from_input(sequence_input) = sequence {
