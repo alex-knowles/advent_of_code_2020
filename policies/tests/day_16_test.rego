@@ -4,9 +4,11 @@ import data.advent_of_code.day_16
 import data.advent_of_code.input_data
 
 sample_input := {
-  "class": "1-3 or 5-7",
-  "row": "6-11 or 33-44",
-  "seat": "13-40 or 45-50"
+  "ticket_rules": {
+    "class": "1-3 or 5-7",
+    "row": "6-11 or 33-44",
+    "seat": "13-40 or 45-50"
+  }
 }
 
 sample_your_ticket_input := "7,1,14"
@@ -36,8 +38,7 @@ test_invalid_values_from_tickets {
     [38, 6, 12]
   ]
   
-  rules := sample_rules
   expected_values := [4, 55, 12]
 
-  day_16.invalid_values_from_tickets(tickets, rules) == expected_values
+  day_16.invalid_values_from_tickets(tickets) == expected_values with day_16.ticket_rules as sample_rules
 }
